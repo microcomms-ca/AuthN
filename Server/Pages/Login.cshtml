@@ -1,0 +1,15 @@
+﻿@page
+@model Server.Pages.LoginModel
+@{
+}
+
+<form method="post">
+    <input asp-for="LoginRequest.Code">
+    <input asp-for="LoginRequest.Nonce">
+    <input asp-for="LoginRequest.State">
+    <input asp-for="LoginRequest.RedirectUri">
+
+    <input asp-for="LoginRequest.UserName">
+    <input asp-for="LoginRequest.Password">
+    <button type="submit">Login</button>
+</form>
