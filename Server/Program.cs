@@ -1,3 +1,7 @@
+
+using Microsoft.EntityFrameworkCore;
+using Server.Models;
+
 namespace Server
 {
     public class Program
@@ -10,6 +14,8 @@ namespace Server
             // Add services to the container.
             builder.Services.AddRazorPages();
             builder.Services.AddControllersWithViews();
+            builder.Services.AddDbContext<AuthNContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("AuthNContext")));
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
