@@ -20,6 +20,17 @@ namespace Server.Pages.Applications
 
         public IActionResult OnGet()
         {
+            Application = new Application();
+            // Generate a random 5-digit number for ClientId
+            var random = new Random();
+            Application.ClientId = random.Next(10000, 100000);
+            
+            Application.ClientSecret = Guid.NewGuid().ToString();
+
+          
+            Application.IssueDate = DateOnly.FromDateTime(DateTime.Today);
+            Application.ExpiryDate = DateOnly.FromDateTime(DateTime.Today.AddMonths(1));
+
             return Page();
         }
 
